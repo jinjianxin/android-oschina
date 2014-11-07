@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp" 
+    android:background="@color/gray"
+    >
+
+    <ImageView 
+        android:id="@+id/head_frame_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/frame_logo_news"
+        android:layout_centerVertical="true"
+        />
+    
+    <TextView 
+        android:id="@+id/head_title"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:text="咨询"
+        android:layout_toRightOf="@id/head_frame_logo"
+        android:gravity="center_vertical"
+        />
+    
+    <Button
+        android:id="@+id/head_search"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/head_search"
+		android:layout_centerVertical="true"
+		android:layout_marginRight="2.0dip"
+         />
+    
+</RelativeLayout>
