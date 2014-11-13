@@ -1,8 +1,12 @@
 package com.power.oschina;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -11,6 +15,7 @@ import android.view.Window;
 import android.widget.RadioButton;
 
 import com.loopj.android.http.*;
+import com.power.adapter.MainPagerAdapter;
 
 
 public class MainActivity extends Activity {
@@ -20,7 +25,7 @@ public class MainActivity extends Activity {
 	private RadioButton m_tweet = null;
 	private RadioButton m_active = null;
 	private RadioButton m_more = null;
-
+	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,7 +42,7 @@ public class MainActivity extends Activity {
     	m_question = (RadioButton) findViewById(R.id.foot_question);
     	m_tweet = (RadioButton) findViewById(R.id.foot_tweet);
     	m_active =(RadioButton) findViewById(R.id.foot_active);
-    	m_more = (RadioButton) findViewById(R.id.foot_more);
+    	m_more = (RadioButton) findViewById(R.id.foot_more);   	
     	
     	m_news.setOnClickListener(new OnClickListener() {
 			
@@ -60,5 +65,7 @@ public class MainActivity extends Activity {
 				
 			}
 		});
+    	
     }
+   
 }

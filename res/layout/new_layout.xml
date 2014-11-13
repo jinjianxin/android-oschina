@@ -5,11 +5,45 @@
     android:orientation="vertical"
      >
      
-    <Button 
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="test"
-        />
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="35.0dip"
+        android:orientation="horizontal"
+        android:background="#FFFFFF" >
+        <Button 
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@drawable/news_button_style"
+            />
+        <ImageView 
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:src="@drawable/frame_button_cutline"
+            />
+         <Button 
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@drawable/news_button_style"
+            />
+            <ImageView 
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:src="@drawable/frame_button_cutline"
+            />
+          <Button 
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@drawable/news_button_style"
+            />
+    </LinearLayout>
+   
+    <com.handmark.pulltorefresh.library.PullToRefreshExpandableListView
+        android:id="@+id/expand_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
     
-
 </LinearLayout>

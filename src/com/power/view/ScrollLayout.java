@@ -9,7 +9,7 @@
 package com.power.view;
 
 /**
- * TODO<请描述这个类是干什么的>
+ * TODO 容器类
  * @author  jjx
  * @data:  2014年11月12日 下午2:02:14
  * @version:  V1.0
