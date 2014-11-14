@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     android:orientation="vertical"
      >
      
@@ -10,40 +10,65 @@
         android:layout_width="fill_parent"
         android:layout_height="35.0dip"
         android:orientation="horizontal"
-        android:background="#FFFFFF" >
+        android:gravity="center_vertical"
+        android:background="#FFFFFF"
+         >
         <Button 
+            android:id="@+id/new_last"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_weight="1"
             android:background="@drawable/news_button_style"
+            android:text="最新资讯"
             />
         <ImageView 
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
-            android:src="@drawable/frame_button_cutline"
+            android:background="@drawable/frame_button_cutline"
             />
          <Button 
+            android:id="@+id/new_blog"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_weight="1"
             android:background="@drawable/news_button_style"
+            android:text="最新博客"
             />
             <ImageView 
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
-            android:src="@drawable/frame_button_cutline"
+            android:background="@drawable/frame_button_cutline"
             />
           <Button 
+              android:id="@+id/new_read"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_weight="1"
             android:background="@drawable/news_button_style"
+            android:text="最新阅读"
             />
     </LinearLayout>
-   
-    <com.handmark.pulltorefresh.library.PullToRefreshExpandableListView
-        android:id="@+id/expand_list"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
     
+ 
+     <!-- <com.handmark.pulltorefresh.library.PullToRefreshListView
+        android:id="@+id/new_pull_list"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1" 
+        />  --> 
+    
+     <!-- <ListView
+        android:id="@+id/new_pull_list"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1" 
+        /> 
+     -->
+     <com.power.view.PullToRefreshListView 
+              android:id="@+id/new_pull_list"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1" />
+      
+
 </LinearLayout>

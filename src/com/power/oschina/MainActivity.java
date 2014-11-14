@@ -12,10 +12,16 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
+import android.widget.Button;
+import android.widget.ExpandableListView;
+import android.widget.ListView;
+import android.widget.ExpandableListView.OnGroupClickListener;
 import android.widget.RadioButton;
 
 import com.loopj.android.http.*;
 import com.power.adapter.MainPagerAdapter;
+import com.power.adapter.NewsAdapter;
+import com.power.view.PullToRefreshListView;
 
 
 public class MainActivity extends Activity {
@@ -26,6 +32,12 @@ public class MainActivity extends Activity {
 	private RadioButton m_active = null;
 	private RadioButton m_more = null;
 	
+	private Button m_newLast = null;
+	private Button m_newBlog = null;
+	private Button m_newRead = null;
+	private PullToRefreshListView m_newPullList = null;
+	
+	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +45,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         
         initRadioButton();
+        initNewsFrame();
         
     }
     
@@ -68,4 +81,15 @@ public class MainActivity extends Activity {
     	
     }
    
+    private void initNewsFrame()
+    {
+    	m_newLast =(Button) findViewById(R.id.new_last);
+    	m_newBlog = (Button) findViewById(R.id.new_blog);
+    	m_newRead = (Button) findViewById(R.id.new_read);
+    	
+    	m_newPullList = (PullToRefreshListView) findViewById(R.id.new_pull_list);        
+        NewsAdapter adapter = new NewsAdapter(getApplicationContext());
+        m_newPullList.setAdapter(adapter);
+    
+    }
 }
