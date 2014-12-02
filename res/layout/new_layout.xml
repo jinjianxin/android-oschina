@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+     >
+     
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="35.0dip"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="#FFFFFF"
+         >
+        <Button 
+            android:id="@+id/new_last"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@drawable/news_button_style"
+            android:text="最新资讯"
+            />
+        <ImageView 
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:background="@drawable/frame_button_cutline"
+            />
+         <Button 
+            android:id="@+id/new_blog"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@drawable/news_button_style"
+            android:text="最新博客"
+            />
+            <ImageView 
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:background="@drawable/frame_button_cutline"
+            />
+          <Button 
+              android:id="@+id/new_read"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@drawable/news_button_style"
+            android:text="最新阅读"
+            />
+    </LinearLayout>
+    
+     <com.power.view.PullToRefreshListView 
+        android:id="@+id/new_pull_list"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1" />
+      
+
+</LinearLayout>

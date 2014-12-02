@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+	android:background="@drawable/widget_bar_bg_n"
+	android:id="@+id/bottom"
+	android:layout_alignParentBottom="true" 
+     >
+
+    <RadioButton 
+        android:id="@+id/foot_news"
+       	style="@style/main_footbar_radio"
+		android:drawableTop="@drawable/foot_news"
+        />
+    <ImageView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/widget_bar_cut_off"
+        />
+    <RadioButton 
+        android:id="@+id/foot_question"
+        style="@style/main_footbar_radio"
+		android:drawableTop="@drawable/foot_question"
+        />
+    <ImageView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/widget_bar_cut_off"
+        />
+    
+      <RadioButton 
+        android:id="@+id/foot_tweet"
+        style="@style/main_footbar_radio"
+		android:drawableTop="@drawable/foot_tweet"
+        />
+    <ImageView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/widget_bar_cut_off"
+        />
+    
+          <RadioButton 
+        android:id="@+id/foot_active"
+        style="@style/main_footbar_radio"
+		android:drawableTop="@drawable/foot_active"
+        />
+    <ImageView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/widget_bar_cut_off"
+        />
+    
+              <RadioButton 
+        android:id="@+id/foot_more"
+        style="@style/main_footbar_radio"
+		android:drawableTop="@drawable/foot_more"
+        />
+    <ImageView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/widget_bar_cut_off"
+        />
+
+
+</LinearLayout>
