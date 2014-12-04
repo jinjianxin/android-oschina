@@ -3,88 +3,101 @@
  * @Copyright:  XXX Co., Ltd. Copyright YYYY-YYYY,  All rights reserved
  * @Description:  TODO<>
  * @author:  jjx
- * @data:  2014年11月13日 下午3:59:53
+ * @data:  2014锟斤拷11锟斤拷13锟斤拷 锟斤拷锟斤拷3:59:53
  * @version:  V1.0
  */
 package com.power.adapter;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.w3c.dom.Text;
+
+import com.power.data.NewsData;
 import com.power.oschina.R;
+import com.power.until.BtHelper;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.TextView;
 
-/**
- * TODO<请描述这个类是干什么的>
- * @author  jjx
- * @data:  2014年11月13日 下午3:59:53
- * @version:  V1.0
- */
-public class NewsAdapter  extends BaseAdapter
-{
+public class NewsAdapter extends BaseAdapter {
+	private List<NewsData> m_list;
 	private Context m_context = null;
-	
-	/** 
-	 * <默认构造函数>
-	 */
+
 	public NewsAdapter(Context context) {
 		// TODO Auto-generated constructor stub
 		this.m_context = context;
+
+		m_list = new ArrayList<NewsData>();
 	}
 
-	/**
-	 * 重载方法
-	 * @return
-	 */
+	public void add(List<NewsData> list) {
+		m_list.addAll(list);
+	}
+
 	@Override
 	public int getCount() {
 		// TODO Auto-generated method stub
-		return 30;
+		return m_list.size();
 	}
 
-	/**
-	 * 重载方法
-	 * @param position
-	 * @return
-	 */
 	@Override
 	public Object getItem(int position) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	/**
-	 * 重载方法
-	 * @param position
-	 * @return
-	 */
 	@Override
 	public long getItemId(int position) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
-	/**
-	 * 重载方法
-	 * @param position
-	 * @param convertView
-	 * @param parent
-	 * @return
-	 */
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		// TODO Auto-generated method stub
+	
+		if (convertView == null) {
+
+			LayoutInflater inflater = (LayoutInflater) m_context
+					.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+			View view = inflater.inflate(R.layout.new_adapter_layout, null);
+			
+			NewsData data = m_list.get(position);
+			
+			TextView title = (TextView) view.findViewById(R.id.title);
+			title.setText(data.getM__title());
+			
+			TextView author = (TextView) view.findViewById(R.id.author); 
+			author.setText(data.getM_author());
+			
+			TextView commentCount = (TextView) view.findViewById(R.id.count);
+			commentCount.setText(data.getM_commentCount());
+
+			return view;
+		} else {
 		
-		LayoutInflater inflater = (LayoutInflater) m_context
-				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		
-		
-		View view = inflater.inflate(R.layout.new_adapter_layout, null);
-		
-		return view;
+			NewsData data = m_list.get(position);
+			
+			TextView textView = (TextView) convertView.findViewById(R.id.title);
+			textView.setText(data.getM__title());
+			
+			TextView author = (TextView) convertView.findViewById(R.id.author); 
+			author.setText(data.getM_author());
+
+			TextView commentCount = (TextView) convertView.findViewById(R.id.count);
+			commentCount.setText(data.getM_commentCount());
+			
+			return convertView;
+		}
 	}
 
 }

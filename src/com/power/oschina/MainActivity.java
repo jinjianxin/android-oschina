@@ -44,66 +44,12 @@ public class MainActivity extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
         
-        initRadioButton();
-        initNewsFrame();
+
         
     }
     
-    private void initRadioButton()
-    {
-    	m_news = (RadioButton) findViewById(R.id.foot_news);
-    	m_question = (RadioButton) findViewById(R.id.foot_question);
-    	m_tweet = (RadioButton) findViewById(R.id.foot_tweet);
-    	m_active =(RadioButton) findViewById(R.id.foot_active);
-    	m_more = (RadioButton) findViewById(R.id.foot_more);   	
-    	
-    	m_news.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-			m_question.setChecked(false);
-			m_tweet.setChecked(false);
-			m_active.setChecked(false);
-			m_more.setChecked(false);
-				
-			}
-		});
-    	
-    	m_question.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				
-			}
-		});
-    	
-    }
-   
-    private void initNewsFrame()
-    {
-    	m_newLast =(Button) findViewById(R.id.new_last);
-    	m_newBlog = (Button) findViewById(R.id.new_blog);
-    	m_newRead = (Button) findViewById(R.id.new_read);
-    	
-    	m_newPullList = (PullToRefreshListView) findViewById(R.id.new_pull_list);    
-    	
-    	
-        View lvNews_footer = getLayoutInflater().inflate(R.layout.listview_footer,
-				null);
-        m_newPullList.addFooterView(lvNews_footer);
-    	
-        NewsAdapter adapter = new NewsAdapter(getApplicationContext());
-        m_newPullList.setAdapter(adapter);
-      
-        m_newPullList.setOnRefreshListener(new PullToRefreshListView.OnRefreshListener() {
-			public void onRefresh() {
-				
-				m_newPullList.onRefreshComplete();
-				m_newPullList.setSelection(0); 
-			}
-		});
+
     
-    }
+   
+
 }

@@ -1,19 +1,5 @@
-/*
- * @Title:  test.java
- * @Copyright:  XXX Co., Ltd. Copyright YYYY-YYYY,  All rights reserved
- * @Description:  TODO<>
- * @author:  jjx
- * @data:  2014年11月12日 下午2:02:14
- * @version:  V1.0
- */
 package com.power.view;
 
-/**
- * TODO 容器类
- * @author  jjx
- * @data:  2014年11月12日 下午2:02:14
- * @version:  V1.0
- */
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
@@ -27,8 +13,8 @@ public class ScrollLayout extends ViewGroup {
     private int defaultScreen = 0;
     private int currentScreen;
 
-    private Scroller scroller;// 滑动控制器
-    private VelocityTracker velocityTracker;// 用于得到手势在屏幕上的滑动速度
+    private Scroller scroller;
+    private VelocityTracker velocityTracker;
     private float lastMotionX;
 
     private static final int VELOCITY = 600;
@@ -73,7 +59,6 @@ public class ScrollLayout extends ViewGroup {
                 if (childView.getVisibility() != View.GONE) {
                 	
                     int childWidth = childView.getMeasuredWidth();
-                    // 设置View的大小、位置
                     childView.layout(childLeft, 0, childLeft + childWidth,
                             childView.getMeasuredHeight());
 
@@ -93,7 +78,7 @@ public class ScrollLayout extends ViewGroup {
         switch (action) {
         case MotionEvent.ACTION_DOWN:
             if (velocityTracker == null) {
-                velocityTracker = VelocityTracker.obtain();// 取得手势在屏幕上的滑动速度
+                velocityTracker = VelocityTracker.obtain();
                 velocityTracker.addMovement(event);
             }
             if (!scroller.isFinished()) {
@@ -123,8 +108,8 @@ public class ScrollLayout extends ViewGroup {
             int velocityX = 0;
             if (velocityTracker != null) {
                 velocityTracker.addMovement(event);
-                velocityTracker.computeCurrentVelocity(1000);// 计算每秒滑动多少个像素
-                velocityX = (int) velocityTracker.getXVelocity();// 最后计算检索X速度
+                velocityTracker.computeCurrentVelocity(1000);
+                velocityX = (int) velocityTracker.getXVelocity();
             }
 
             if (velocityX > VELOCITY && currentScreen > 0) {
@@ -137,7 +122,7 @@ public class ScrollLayout extends ViewGroup {
             }
 
             if (velocityTracker != null) {
-                velocityTracker.recycle();// 回收
+                velocityTracker.recycle();
                 velocityTracker = null;
             }
 
@@ -147,7 +132,6 @@ public class ScrollLayout extends ViewGroup {
         return true;
     }
 
-    // 滑动到目标页面
     private void toDestination() {
         int screenWidth = getWidth();
         int destScreen = (getScrollX() + screenWidth / 2) / screenWidth;
@@ -155,7 +139,6 @@ public class ScrollLayout extends ViewGroup {
         toScreen(destScreen);
     }
 
-    // 滑动到指定页面
     private void toScreen(int whichScreen) {
         whichScreen = Math.max(0, Math.min(whichScreen, getChildCount() - 1));
 
@@ -177,7 +160,6 @@ public class ScrollLayout extends ViewGroup {
         onViewChangeListener = lintener;
     }
 
-    // 能否滑动
     private boolean isCanMove(int deltaX) {
         if (getScrollX() <= 0 && deltaX < 0) {
             return false;
