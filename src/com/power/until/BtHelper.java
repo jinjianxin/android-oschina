@@ -11,6 +11,7 @@ package com.power.until;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.io.StringReader;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -27,6 +28,9 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
+import org.xmlpull.v1.XmlPullParserFactory;
 
 import com.power.data.NewsData;
 
@@ -114,6 +118,40 @@ public class BtHelper extends Object {
 		}
 		
 		return list;
+	}
+	
+	public static void  blogXmlParser(String xmlStr) {
+		try {
+			XmlPullParser parser = XmlPullParserFactory.newInstance().newPullParser();
+			
+		//	parser.setInput(new InputSource(new ByteArrayInputStream(xmlStr.getBytes("utf-8"))), "utf-8");
+			parser.setInput(new StringReader(xmlStr));
+			  int eventType = parser.getEventType();
+		       while (eventType != XmlPullParser.END_DOCUMENT) {
+		           if(eventType == XmlPullParser.START_DOCUMENT) {
+		        	   BtHelper.logOutPut("Start document");
+		           } else if(eventType == XmlPullParser.START_TAG) {
+		        	   BtHelper.logOutPut("Start tag "+parser.getName());
+		           } else if(eventType == XmlPullParser.END_TAG) {
+		        	   BtHelper.logOutPut("End tag "+parser.getName());
+		           } else if(eventType == XmlPullParser.TEXT) {
+		               BtHelper.logOutPut("Text "+parser.getText());
+		           }
+		           
+		           
+		           try {
+					eventType = parser.next();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		          }
+		          System.out.println("End document");
+			
+		} catch (XmlPullParserException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	public static String getNodeValue(Element element,String tag)

@@ -100,4 +100,9 @@ public class NewsAdapter extends BaseAdapter {
 		}
 	}
 
+	public void removeAll() {
+		// TODO Auto-generated method stub
+		m_list.removeAll(m_list);
+	}
+
 }
